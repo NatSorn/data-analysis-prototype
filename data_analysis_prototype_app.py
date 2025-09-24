@@ -25,13 +25,13 @@ with col1:
         except FileNotFoundError:
             st.error("Dataset not found. Please check the file path.")
 
-with col2:
-    if st.button("🧹 Parse Reviews"):
-        if "df" in st.session_state:
-            st.session_state["df"]["CLEANED_SUMMARY"] = st.session_state["df"]["SUMMARY"].apply(clean_text)
-            st.success("Reviews parsed and cleaned!")
-        else:
-            st.warning("Please ingest the dataset first.")
+# with col2:
+#     if st.button("🧹 Parse Reviews"):
+#         if "df" in st.session_state:
+#             st.session_state["df"]["CLEANED_SUMMARY"] = st.session_state["df"]["SUMMARY"].apply(clean_text)
+#             st.success("Reviews parsed and cleaned!")
+#         else:
+#             st.warning("Please ingest the dataset first.")
 
 # Display the dataset if it exists
 if "df" in st.session_state:
