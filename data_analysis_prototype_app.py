@@ -22,7 +22,7 @@ def get_gpt_insight(df, api_key):
         "If possible, mention trends, anomalies, or anything interesting.\n\nSample data:\n" + str(sample)
     )
     try:
-        response = client.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=300
