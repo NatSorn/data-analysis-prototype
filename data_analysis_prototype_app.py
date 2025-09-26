@@ -22,9 +22,11 @@ def get_gpt_insight(df, api_key):
         "If possible, mention trends, anomalies, or anything interesting.\n\nSample data:\n" + str(sample)
     )
     try:
-        response = client.chat.completions.create(model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=300)
+        response = openai.ChatCompletion.create(
+            model="gpt-4o-mini",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=300
+        )
         return response.choices[0].message.content
     except Exception as e:
         return f"Error getting insight: {e}"
